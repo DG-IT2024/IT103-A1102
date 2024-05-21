@@ -51,6 +51,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        gradeTextField.setEditable(false);
         gradeTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         gradeTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         gradeTextField.addActionListener(new java.awt.event.ActionListener() {
