@@ -20,12 +20,8 @@ public class Main {
         new EmployeeProfile().setVisible(true);
     }
 
-     private static void printEmployees(List<Employee> employees) {
-        for (Employee employee : employees) {
-            System.out.println("no." + employee.getEmployeeNumber() + "  " + employee.getLastName() + " ," + employee.getFirstName());
-
-        }
-    }
+    
+}
 
   
-}
+
