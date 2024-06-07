@@ -6,21 +6,18 @@ package group3_motorph_payrollpaymentsystemV2;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 public class Filehandling {
 
-//    public static void main(String[] args) {
-//
-//        List<String[]> records = readCSV();
 //        List<Employee> employees = parseRecords(records);
 //        printEmployees(employees);
     // Method to read CSV file and return records
@@ -31,9 +28,12 @@ public class Filehandling {
             // Assuming the first row is the header
             records.remove(0);
             return records;
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "File not found: " + csvFile, "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
+            throw e; // rethrow the exception to indicate failure
 
         }
-
     }
 
     // Method to parse records into Employee objects
@@ -72,9 +72,8 @@ public class Filehandling {
     }
 
     public static void exportTableToCSV(JTable table) {
-        
-        String csvFile1 = "MotorPH_Update.csv";
-        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile1))) {
+        String csvFile = "MotorPH_Update.csv";
+        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile))) {
             DefaultTableModel model = (DefaultTableModel) table.getModel();
 
             // Write column headers
@@ -95,9 +94,9 @@ public class Filehandling {
                 writer.writeNext(rowData);
             }
 
-            System.out.println("Data exported to CSV file successfully.");
+             JOptionPane.showMessageDialog(null,"Database updated successfully");
         } catch (IOException e) {
-            System.out.println("Failed to export data to CSV file.");
+             JOptionPane.showMessageDialog(null,"Failed to export data to CSV file.");
         }
     }
 

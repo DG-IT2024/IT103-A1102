@@ -8,6 +8,7 @@ package group3_motorph_payrollpaymentsystemv2;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
 /**
  *
  * @author danilo
@@ -17,6 +18,7 @@ public class Main {
     public static void main(String args[]) throws FileNotFoundException, IOException {
 
         new EmployeeProfile().setVisible(true);
+        
     }
 
     

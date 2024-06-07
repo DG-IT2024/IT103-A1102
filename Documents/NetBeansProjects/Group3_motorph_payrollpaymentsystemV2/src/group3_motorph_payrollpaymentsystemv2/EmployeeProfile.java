@@ -1,32 +1,24 @@
 package group3_motorph_payrollpaymentsystemv2;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
 import group3_motorph_payrollpaymentsystemV2.Employee;
+import group3_motorph_payrollpaymentsystemV2.Filehandling;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class EmployeeProfile extends javax.swing.JFrame {
 
-    public EmployeeProfile() throws FileNotFoundException, IOException {
+    public EmployeeProfile()throws FileNotFoundException, IOException {
         initComponents();
 
         String csvFile = "MotorPHEmployeeData.csv"; // Use your file path here
-
-        List<String[]> records = readCSV(csvFile);
-        List<Employee> employees = parseRecordsy(records);
-        informationTable(employees);
-
+        csvRun(csvFile);
     }
 
     /**
@@ -119,6 +111,11 @@ public class EmployeeProfile extends javax.swing.JFrame {
                 jTextFieldEmployeeNumActionPerformed(evt);
             }
         });
+        jTextFieldEmployeeNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldEmployeeNumKeyTyped(evt);
+            }
+        });
 
         jTextFieldLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +126,11 @@ public class EmployeeProfile extends javax.swing.JFrame {
         jTextFieldBirthday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBirthdayActionPerformed(evt);
+            }
+        });
+        jTextFieldBirthday.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldBirthdayKeyTyped(evt);
             }
         });
 
@@ -550,48 +552,10 @@ public class EmployeeProfile extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    // Method to read CSV file and return records
-    public static List<String[]> readCSV(String csvFile) throws IOException {
-
-        try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
-            List<String[]> records = reader.readAll();
-            // Assuming the first row is the header
-            records.remove(0);
-            return records;
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "File not found: " + csvFile, "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
-            throw e; // rethrow the exception to indicate failure
-
-        }
-    }
-
-    // Method to parse records into Employee objects
-    public static List<Employee> parseRecordsy(List<String[]> records) {
-        List<Employee> employees = new ArrayList<>();
-        for (String[] record : records) {
-            String employeeNumber = record[0];
-            String lastName = record[1];
-            String firstName = record[2];
-            String employeeBirthday = record[3];
-            String address = record[4];
-            String phoneNumber = record[5];
-            String sssNumber = record[6];
-            String philHealthNumber = record[7];
-            String tinNumber = record[8];
-            String pagIbigNumber = record[9];
-            String status = record[10];
-            String position = record[11];
-            String immediateSupervisor = record[12];
-            String basicSalary = record[13];
-            String riceSubsidy = record[14];
-            String phoneAllowance = record[15];
-            String clothingAllowance = record[16];
-
-            Employee employee = new Employee(employeeNumber, lastName, firstName, employeeBirthday, address, phoneNumber, sssNumber, philHealthNumber, tinNumber, pagIbigNumber, status, position, immediateSupervisor, basicSalary, riceSubsidy, phoneAllowance, clothingAllowance);
-            employees.add(employee);
-        }
-        return employees;
+    private void csvRun(String csvFile)  throws FileNotFoundException, IOException {
+        List<String[]> records = Filehandling.readCSV(csvFile);
+        List<Employee> employees = Filehandling.parseRecords(records);
+        informationTable(employees);
     }
 
     private void informationTable(List<Employee> employees) {
@@ -620,39 +584,16 @@ public class EmployeeProfile extends javax.swing.JFrame {
         }
     }
 
-    public static void exportTableToCSV(JTable table) {
-
-        String csvFile1 = "MotorPH_Update.csv";
-        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile1))) {
-            DefaultTableModel model = (DefaultTableModel) table.getModel();
-
-            // Write column headers
-            int columnCount = model.getColumnCount();
-            String[] columnNames = new String[columnCount];
-            for (int i = 0; i < columnCount; i++) {
-                columnNames[i] = model.getColumnName(i);
-            }
-            writer.writeNext(columnNames);
-
-            // Write rows
-            int rowCount = model.getRowCount();
-            for (int i = 0; i < rowCount; i++) {
-                String[] rowData = new String[columnCount];
-                for (int j = 0; j < columnCount; j++) {
-                    rowData[j] = model.getValueAt(i, j).toString();
-                }
-                writer.writeNext(rowData);
-            }
-            JOptionPane.showMessageDialog(null, "Database updated successfully");
-        } catch (IOException e) {
-            System.out.println("Failed to update database.");
+    public static void allowOnlyDigits(KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
         }
     }
 
-    
-     public static void allowOnlyDigits(KeyEvent evt) {
+    public static void allowOnlyDate(KeyEvent evt) {
         char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c) && c != '/' && c != '-' && c != '.') {
             evt.consume();
         }
     }
@@ -805,8 +746,6 @@ public class EmployeeProfile extends javax.swing.JFrame {
 
     private void jTextFieldStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStatusActionPerformed
         // TODO add your handling code here:
-
-
     }//GEN-LAST:event_jTextFieldStatusActionPerformed
 
     private void jButtonProfileAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfileAddActionPerformed
@@ -833,39 +772,47 @@ public class EmployeeProfile extends javax.swing.JFrame {
             jTextFieldPhoneAllow.getText(),
             jTextFieldClothAllow.getText()});
 
-        JOptionPane.showMessageDialog(this,
-                "Employee added successfully!");
+        JOptionPane.showMessageDialog(this, "Employee added successfully!");
     }//GEN-LAST:event_jButtonProfileAddActionPerformed
 
     private void jButtonUpdateDBSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDBSActionPerformed
         // TODO add your handling code here:
-        exportTableToCSV(jTableEmployeeList);
+        Filehandling.exportTableToCSV(jTableEmployeeList);
     }//GEN-LAST:event_jButtonUpdateDBSActionPerformed
 
-    
-    
 
     private void jTextFieldBasicSalaryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBasicSalaryKeyTyped
         // TODO add your handling code here:
-       allowOnlyDigits( evt) ;
+        allowOnlyDigits(evt);
     }//GEN-LAST:event_jTextFieldBasicSalaryKeyTyped
 
     private void jTextFieldRiceSubsidyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRiceSubsidyKeyTyped
         // TODO add your handling code here:
-        
+
         allowOnlyDigits(evt);
     }//GEN-LAST:event_jTextFieldRiceSubsidyKeyTyped
 
     private void jTextFieldPhoneAllowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPhoneAllowKeyTyped
         // TODO add your handling code here:
         allowOnlyDigits(evt);
-        
+
     }//GEN-LAST:event_jTextFieldPhoneAllowKeyTyped
 
     private void jTextFieldClothAllowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldClothAllowKeyTyped
         // TODO add your handling code here:
         allowOnlyDigits(evt);
     }//GEN-LAST:event_jTextFieldClothAllowKeyTyped
+
+    private void jTextFieldEmployeeNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldEmployeeNumKeyTyped
+        // TODO add your handling code here:
+        allowOnlyDigits(evt);
+    }//GEN-LAST:event_jTextFieldEmployeeNumKeyTyped
+
+    private void jTextFieldBirthdayKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBirthdayKeyTyped
+        // TODO add your handling code here:
+
+        allowOnlyDate(evt);
+    }//GEN-LAST:event_jTextFieldBirthdayKeyTyped
 
     /**
      * @param args the command line arguments
