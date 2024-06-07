@@ -18,8 +18,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class Filehandling {
 
-//        List<Employee> employees = parseRecords(records);
-//        printEmployees(employees);
     // Method to read CSV file and return records
     public static List<String[]> readCSV(String csvFile) throws IOException {
 
@@ -27,6 +25,8 @@ public class Filehandling {
             List<String[]> records = reader.readAll();
             // Assuming the first row is the header
             records.remove(0);
+            System.out.print(records);
+            
             return records;
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "File not found: " + csvFile, "Error", JOptionPane.ERROR_MESSAGE);
@@ -99,5 +99,6 @@ public class Filehandling {
              JOptionPane.showMessageDialog(null,"Failed to export data to CSV file.");
         }
     }
+   
 
 }

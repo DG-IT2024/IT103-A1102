@@ -1,0 +1,817 @@
+ID,Last Name,First Name,Covered Period,No. of Hours Worked
+1,Garcia,Manuel III,January 2023,173
+2,Lim,Antonio,January 2023,182
+3,Aquino,Bianca Sofia ,January 2023,167
+4,Reyes,Isabella,January 2023,184
+5,Hernandez,Eduard,January 2023,160
+6,Villanueva,Andrea Mae,January 2023,174
+7,San Jose,Brad,January 2023,175
+8,Romualdez,Alice,January 2023,168
+9,Atienza,Rosie,January 2023,190
+10,Alvaro,Roderick,January 2023,178
+11,Salcedo,Anthony,January 2023,191
+12,Lopez,Josie,January 2023,196
+13,Farala,Martha,January 2023,163
+14,Martinez,Leila,January 2023,168
+15,Romualdez,Fredrick,January 2023,178
+16,Mata,Christian,January 2023,171
+17,De Leon,Selena,January 2023,194
+18,San Jose,Allison,January 2023,176
+19,Rosario,Cydney,January 2023,171
+20,Bautista,Mark,January 2023,200
+21,Lazaro,Darlene,January 2023,163
+22,Delos Santos,Kolby,January 2023,164
+23,Santos,Vella,January 2023,183
+24,Del Rosario,Tomas,January 2023,161
+25,Tolentino,Jacklyn,January 2023,164
+26,Gutierrez,Percival,January 2023,176
+27,Manalaysay,Garfield,January 2023,197
+28,Villegas,Lizeth,January 2023,172
+29,Ramos,Carol,January 2023,198
+30,Maceda,Emelia,January 2023,191
+31,Aguilar,Delia,January 2023,177
+32,Castro,John Rafael,January 2023,196
+33,Martinez,Carlos Ian,January 2023,172
+34,Santos,Beatriz,January 2023,166
+1,Garcia,Manuel III,February 2023,182
+2,Lim,Antonio,February 2023,165
+3,Aquino,Bianca Sofia ,February 2023,182
+4,Reyes,Isabella,February 2023,177
+5,Hernandez,Eduard,February 2023,193
+6,Villanueva,Andrea Mae,February 2023,171
+7,San Jose,Brad,February 2023,163
+8,Romualdez,Alice,February 2023,163
+9,Atienza,Rosie,February 2023,178
+10,Alvaro,Roderick,February 2023,186
+11,Salcedo,Anthony,February 2023,180
+12,Lopez,Josie,February 2023,171
+13,Farala,Martha,February 2023,165
+14,Martinez,Leila,February 2023,181
+15,Romualdez,Fredrick,February 2023,172
+16,Mata,Christian,February 2023,196
+17,De Leon,Selena,February 2023,162
+18,San Jose,Allison,February 2023,170
+19,Rosario,Cydney,February 2023,197
+20,Bautista,Mark,February 2023,182
+21,Lazaro,Darlene,February 2023,185
+22,Delos Santos,Kolby,February 2023,161
+23,Santos,Vella,February 2023,180
+24,Del Rosario,Tomas,February 2023,165
+25,Tolentino,Jacklyn,February 2023,178
+26,Gutierrez,Percival,February 2023,165
+27,Manalaysay,Garfield,February 2023,188
+28,Villegas,Lizeth,February 2023,161
+29,Ramos,Carol,February 2023,186
+30,Maceda,Emelia,February 2023,161
+31,Aguilar,Delia,February 2023,200
+32,Castro,John Rafael,February 2023,164
+33,Martinez,Carlos Ian,February 2023,176
+34,Santos,Beatriz,February 2023,186
+1,Garcia,Manuel III,March 2023,182
+2,Lim,Antonio,March 2023,184
+3,Aquino,Bianca Sofia ,March 2023,179
+4,Reyes,Isabella,March 2023,161
+5,Hernandez,Eduard,March 2023,175
+6,Villanueva,Andrea Mae,March 2023,160
+7,San Jose,Brad,March 2023,197
+8,Romualdez,Alice,March 2023,186
+9,Atienza,Rosie,March 2023,167
+10,Alvaro,Roderick,March 2023,162
+11,Salcedo,Anthony,March 2023,170
+12,Lopez,Josie,March 2023,192
+13,Farala,Martha,March 2023,174
+14,Martinez,Leila,March 2023,167
+15,Romualdez,Fredrick,March 2023,190
+16,Mata,Christian,March 2023,183
+17,De Leon,Selena,March 2023,160
+18,San Jose,Allison,March 2023,178
+19,Rosario,Cydney,March 2023,184
+20,Bautista,Mark,March 2023,173
+21,Lazaro,Darlene,March 2023,193
+22,Delos Santos,Kolby,March 2023,174
+23,Santos,Vella,March 2023,190
+24,Del Rosario,Tomas,March 2023,191
+25,Tolentino,Jacklyn,March 2023,195
+26,Gutierrez,Percival,March 2023,199
+27,Manalaysay,Garfield,March 2023,169
+28,Villegas,Lizeth,March 2023,183
+29,Ramos,Carol,March 2023,178
+30,Maceda,Emelia,March 2023,166
+31,Aguilar,Delia,March 2023,163
+32,Castro,John Rafael,March 2023,199
+33,Martinez,Carlos Ian,March 2023,165
+34,Santos,Beatriz,March 2023,177
+1,Garcia,Manuel III,April 2023,166
+2,Lim,Antonio,April 2023,190
+3,Aquino,Bianca Sofia ,April 2023,174
+4,Reyes,Isabella,April 2023,175
+5,Hernandez,Eduard,April 2023,191
+6,Villanueva,Andrea Mae,April 2023,176
+7,San Jose,Brad,April 2023,161
+8,Romualdez,Alice,April 2023,197
+9,Atienza,Rosie,April 2023,162
+10,Alvaro,Roderick,April 2023,187
+11,Salcedo,Anthony,April 2023,192
+12,Lopez,Josie,April 2023,176
+13,Farala,Martha,April 2023,192
+14,Martinez,Leila,April 2023,179
+15,Romualdez,Fredrick,April 2023,181
+16,Mata,Christian,April 2023,168
+17,De Leon,Selena,April 2023,170
+18,San Jose,Allison,April 2023,187
+19,Rosario,Cydney,April 2023,198
+20,Bautista,Mark,April 2023,181
+21,Lazaro,Darlene,April 2023,196
+22,Delos Santos,Kolby,April 2023,180
+23,Santos,Vella,April 2023,182
+24,Del Rosario,Tomas,April 2023,165
+25,Tolentino,Jacklyn,April 2023,169
+26,Gutierrez,Percival,April 2023,184
+27,Manalaysay,Garfield,April 2023,191
+28,Villegas,Lizeth,April 2023,170
+29,Ramos,Carol,April 2023,177
+30,Maceda,Emelia,April 2023,173
+31,Aguilar,Delia,April 2023,181
+32,Castro,John Rafael,April 2023,171
+33,Martinez,Carlos Ian,April 2023,180
+34,Santos,Beatriz,April 2023,174
+1,Garcia,Manuel III,May 2023,189
+2,Lim,Antonio,May 2023,181
+3,Aquino,Bianca Sofia ,May 2023,181
+4,Reyes,Isabella,May 2023,178
+5,Hernandez,Eduard,May 2023,170
+6,Villanueva,Andrea Mae,May 2023,164
+7,San Jose,Brad,May 2023,174
+8,Romualdez,Alice,May 2023,199
+9,Atienza,Rosie,May 2023,198
+10,Alvaro,Roderick,May 2023,163
+11,Salcedo,Anthony,May 2023,181
+12,Lopez,Josie,May 2023,163
+13,Farala,Martha,May 2023,186
+14,Martinez,Leila,May 2023,189
+15,Romualdez,Fredrick,May 2023,164
+16,Mata,Christian,May 2023,165
+17,De Leon,Selena,May 2023,168
+18,San Jose,Allison,May 2023,189
+19,Rosario,Cydney,May 2023,181
+20,Bautista,Mark,May 2023,182
+21,Lazaro,Darlene,May 2023,186
+22,Delos Santos,Kolby,May 2023,160
+23,Santos,Vella,May 2023,189
+24,Del Rosario,Tomas,May 2023,165
+25,Tolentino,Jacklyn,May 2023,171
+26,Gutierrez,Percival,May 2023,185
+27,Manalaysay,Garfield,May 2023,169
+28,Villegas,Lizeth,May 2023,189
+29,Ramos,Carol,May 2023,171
+30,Maceda,Emelia,May 2023,162
+31,Aguilar,Delia,May 2023,185
+32,Castro,John Rafael,May 2023,176
+33,Martinez,Carlos Ian,May 2023,187
+34,Santos,Beatriz,May 2023,195
+1,Garcia,Manuel III,June 2023,196
+2,Lim,Antonio,June 2023,167
+3,Aquino,Bianca Sofia ,June 2023,160
+4,Reyes,Isabella,June 2023,199
+5,Hernandez,Eduard,June 2023,190
+6,Villanueva,Andrea Mae,June 2023,161
+7,San Jose,Brad,June 2023,171
+8,Romualdez,Alice,June 2023,193
+9,Atienza,Rosie,June 2023,166
+10,Alvaro,Roderick,June 2023,200
+11,Salcedo,Anthony,June 2023,183
+12,Lopez,Josie,June 2023,190
+13,Farala,Martha,June 2023,192
+14,Martinez,Leila,June 2023,170
+15,Romualdez,Fredrick,June 2023,198
+16,Mata,Christian,June 2023,166
+17,De Leon,Selena,June 2023,186
+18,San Jose,Allison,June 2023,172
+19,Rosario,Cydney,June 2023,187
+20,Bautista,Mark,June 2023,200
+21,Lazaro,Darlene,June 2023,168
+22,Delos Santos,Kolby,June 2023,162
+23,Santos,Vella,June 2023,161
+24,Del Rosario,Tomas,June 2023,189
+25,Tolentino,Jacklyn,June 2023,163
+26,Gutierrez,Percival,June 2023,167
+27,Manalaysay,Garfield,June 2023,162
+28,Villegas,Lizeth,June 2023,163
+29,Ramos,Carol,June 2023,171
+30,Maceda,Emelia,June 2023,199
+31,Aguilar,Delia,June 2023,192
+32,Castro,John Rafael,June 2023,180
+33,Martinez,Carlos Ian,June 2023,181
+34,Santos,Beatriz,June 2023,183
+1,Garcia,Manuel III,July 2023,164
+2,Lim,Antonio,July 2023,173
+3,Aquino,Bianca Sofia ,July 2023,167
+4,Reyes,Isabella,July 2023,189
+5,Hernandez,Eduard,July 2023,194
+6,Villanueva,Andrea Mae,July 2023,190
+7,San Jose,Brad,July 2023,179
+8,Romualdez,Alice,July 2023,175
+9,Atienza,Rosie,July 2023,175
+10,Alvaro,Roderick,July 2023,200
+11,Salcedo,Anthony,July 2023,171
+12,Lopez,Josie,July 2023,172
+13,Farala,Martha,July 2023,174
+14,Martinez,Leila,July 2023,190
+15,Romualdez,Fredrick,July 2023,187
+16,Mata,Christian,July 2023,169
+17,De Leon,Selena,July 2023,165
+18,San Jose,Allison,July 2023,198
+19,Rosario,Cydney,July 2023,186
+20,Bautista,Mark,July 2023,161
+21,Lazaro,Darlene,July 2023,177
+22,Delos Santos,Kolby,July 2023,180
+23,Santos,Vella,July 2023,177
+24,Del Rosario,Tomas,July 2023,185
+25,Tolentino,Jacklyn,July 2023,181
+26,Gutierrez,Percival,July 2023,168
+27,Manalaysay,Garfield,July 2023,196
+28,Villegas,Lizeth,July 2023,177
+29,Ramos,Carol,July 2023,190
+30,Maceda,Emelia,July 2023,197
+31,Aguilar,Delia,July 2023,178
+32,Castro,John Rafael,July 2023,186
+33,Martinez,Carlos Ian,July 2023,167
+34,Santos,Beatriz,July 2023,177
+1,Garcia,Manuel III,August 2023,198
+2,Lim,Antonio,August 2023,190
+3,Aquino,Bianca Sofia ,August 2023,164
+4,Reyes,Isabella,August 2023,168
+5,Hernandez,Eduard,August 2023,197
+6,Villanueva,Andrea Mae,August 2023,175
+7,San Jose,Brad,August 2023,165
+8,Romualdez,Alice,August 2023,198
+9,Atienza,Rosie,August 2023,174
+10,Alvaro,Roderick,August 2023,197
+11,Salcedo,Anthony,August 2023,170
+12,Lopez,Josie,August 2023,171
+13,Farala,Martha,August 2023,197
+14,Martinez,Leila,August 2023,195
+15,Romualdez,Fredrick,August 2023,172
+16,Mata,Christian,August 2023,175
+17,De Leon,Selena,August 2023,198
+18,San Jose,Allison,August 2023,192
+19,Rosario,Cydney,August 2023,196
+20,Bautista,Mark,August 2023,200
+21,Lazaro,Darlene,August 2023,173
+22,Delos Santos,Kolby,August 2023,170
+23,Santos,Vella,August 2023,183
+24,Del Rosario,Tomas,August 2023,192
+25,Tolentino,Jacklyn,August 2023,170
+26,Gutierrez,Percival,August 2023,197
+27,Manalaysay,Garfield,August 2023,173
+28,Villegas,Lizeth,August 2023,166
+29,Ramos,Carol,August 2023,194
+30,Maceda,Emelia,August 2023,163
+31,Aguilar,Delia,August 2023,189
+32,Castro,John Rafael,August 2023,186
+33,Martinez,Carlos Ian,August 2023,183
+34,Santos,Beatriz,August 2023,174
+1,Garcia,Manuel III,September 2023,200
+2,Lim,Antonio,September 2023,194
+3,Aquino,Bianca Sofia ,September 2023,174
+4,Reyes,Isabella,September 2023,171
+5,Hernandez,Eduard,September 2023,196
+6,Villanueva,Andrea Mae,September 2023,192
+7,San Jose,Brad,September 2023,196
+8,Romualdez,Alice,September 2023,173
+9,Atienza,Rosie,September 2023,187
+10,Alvaro,Roderick,September 2023,200
+11,Salcedo,Anthony,September 2023,188
+12,Lopez,Josie,September 2023,168
+13,Farala,Martha,September 2023,183
+14,Martinez,Leila,September 2023,169
+15,Romualdez,Fredrick,September 2023,195
+16,Mata,Christian,September 2023,198
+17,De Leon,Selena,September 2023,200
+18,San Jose,Allison,September 2023,181
+19,Rosario,Cydney,September 2023,196
+20,Bautista,Mark,September 2023,180
+21,Lazaro,Darlene,September 2023,190
+22,Delos Santos,Kolby,September 2023,200
+23,Santos,Vella,September 2023,175
+24,Del Rosario,Tomas,September 2023,185
+25,Tolentino,Jacklyn,September 2023,191
+26,Gutierrez,Percival,September 2023,173
+27,Manalaysay,Garfield,September 2023,196
+28,Villegas,Lizeth,September 2023,200
+29,Ramos,Carol,September 2023,177
+30,Maceda,Emelia,September 2023,171
+31,Aguilar,Delia,September 2023,195
+32,Castro,John Rafael,September 2023,185
+33,Martinez,Carlos Ian,September 2023,200
+34,Santos,Beatriz,September 2023,174
+1,Garcia,Manuel III,October 2023,160
+2,Lim,Antonio,October 2023,160
+3,Aquino,Bianca Sofia ,October 2023,178
+4,Reyes,Isabella,October 2023,167
+5,Hernandez,Eduard,October 2023,199
+6,Villanueva,Andrea Mae,October 2023,193
+7,San Jose,Brad,October 2023,200
+8,Romualdez,Alice,October 2023,168
+9,Atienza,Rosie,October 2023,184
+10,Alvaro,Roderick,October 2023,172
+11,Salcedo,Anthony,October 2023,171
+12,Lopez,Josie,October 2023,185
+13,Farala,Martha,October 2023,161
+14,Martinez,Leila,October 2023,172
+15,Romualdez,Fredrick,October 2023,175
+16,Mata,Christian,October 2023,178
+17,De Leon,Selena,October 2023,192
+18,San Jose,Allison,October 2023,182
+19,Rosario,Cydney,October 2023,177
+20,Bautista,Mark,October 2023,161
+21,Lazaro,Darlene,October 2023,195
+22,Delos Santos,Kolby,October 2023,180
+23,Santos,Vella,October 2023,168
+24,Del Rosario,Tomas,October 2023,195
+25,Tolentino,Jacklyn,October 2023,181
+26,Gutierrez,Percival,October 2023,168
+27,Manalaysay,Garfield,October 2023,165
+28,Villegas,Lizeth,October 2023,177
+29,Ramos,Carol,October 2023,199
+30,Maceda,Emelia,October 2023,173
+31,Aguilar,Delia,October 2023,179
+32,Castro,John Rafael,October 2023,180
+33,Martinez,Carlos Ian,October 2023,175
+34,Santos,Beatriz,October 2023,196
+1,Garcia,Manuel III,November 2023,161
+2,Lim,Antonio,November 2023,178
+3,Aquino,Bianca Sofia ,November 2023,166
+4,Reyes,Isabella,November 2023,200
+5,Hernandez,Eduard,November 2023,199
+6,Villanueva,Andrea Mae,November 2023,193
+7,San Jose,Brad,November 2023,165
+8,Romualdez,Alice,November 2023,179
+9,Atienza,Rosie,November 2023,191
+10,Alvaro,Roderick,November 2023,184
+11,Salcedo,Anthony,November 2023,174
+12,Lopez,Josie,November 2023,194
+13,Farala,Martha,November 2023,189
+14,Martinez,Leila,November 2023,195
+15,Romualdez,Fredrick,November 2023,190
+16,Mata,Christian,November 2023,171
+17,De Leon,Selena,November 2023,199
+18,San Jose,Allison,November 2023,185
+19,Rosario,Cydney,November 2023,194
+20,Bautista,Mark,November 2023,163
+21,Lazaro,Darlene,November 2023,179
+22,Delos Santos,Kolby,November 2023,171
+23,Santos,Vella,November 2023,184
+24,Del Rosario,Tomas,November 2023,168
+25,Tolentino,Jacklyn,November 2023,175
+26,Gutierrez,Percival,November 2023,193
+27,Manalaysay,Garfield,November 2023,169
+28,Villegas,Lizeth,November 2023,192
+29,Ramos,Carol,November 2023,162
+30,Maceda,Emelia,November 2023,173
+31,Aguilar,Delia,November 2023,173
+32,Castro,John Rafael,November 2023,197
+33,Martinez,Carlos Ian,November 2023,170
+34,Santos,Beatriz,November 2023,193
+1,Garcia,Manuel III,December 2023,188
+2,Lim,Antonio,December 2023,167
+3,Aquino,Bianca Sofia ,December 2023,193
+4,Reyes,Isabella,December 2023,184
+5,Hernandez,Eduard,December 2023,200
+6,Villanueva,Andrea Mae,December 2023,173
+7,San Jose,Brad,December 2023,188
+8,Romualdez,Alice,December 2023,195
+9,Atienza,Rosie,December 2023,183
+10,Alvaro,Roderick,December 2023,177
+11,Salcedo,Anthony,December 2023,196
+12,Lopez,Josie,December 2023,199
+13,Farala,Martha,December 2023,197
+14,Martinez,Leila,December 2023,188
+15,Romualdez,Fredrick,December 2023,179
+16,Mata,Christian,December 2023,200
+17,De Leon,Selena,December 2023,190
+18,San Jose,Allison,December 2023,160
+19,Rosario,Cydney,December 2023,180
+20,Bautista,Mark,December 2023,167
+21,Lazaro,Darlene,December 2023,198
+22,Delos Santos,Kolby,December 2023,175
+23,Santos,Vella,December 2023,177
+24,Del Rosario,Tomas,December 2023,166
+25,Tolentino,Jacklyn,December 2023,183
+26,Gutierrez,Percival,December 2023,166
+27,Manalaysay,Garfield,December 2023,191
+28,Villegas,Lizeth,December 2023,182
+29,Ramos,Carol,December 2023,187
+30,Maceda,Emelia,December 2023,170
+31,Aguilar,Delia,December 2023,187
+32,Castro,John Rafael,December 2023,171
+33,Martinez,Carlos Ian,December 2023,171
+34,Santos,Beatriz,December 2023,177
+1,Garcia,Manuel III,January 2024,176
+2,Lim,Antonio,January 2024,162
+3,Aquino,Bianca Sofia ,January 2024,182
+4,Reyes,Isabella,January 2024,175
+5,Hernandez,Eduard,January 2024,165
+6,Villanueva,Andrea Mae,January 2024,184
+7,San Jose,Brad,January 2024,163
+8,Romualdez,Alice,January 2024,190
+9,Atienza,Rosie,January 2024,182
+10,Alvaro,Roderick,January 2024,199
+11,Salcedo,Anthony,January 2024,187
+12,Lopez,Josie,January 2024,191
+13,Farala,Martha,January 2024,191
+14,Martinez,Leila,January 2024,182
+15,Romualdez,Fredrick,January 2024,187
+16,Mata,Christian,January 2024,196
+17,De Leon,Selena,January 2024,190
+18,San Jose,Allison,January 2024,172
+19,Rosario,Cydney,January 2024,187
+20,Bautista,Mark,January 2024,170
+21,Lazaro,Darlene,January 2024,162
+22,Delos Santos,Kolby,January 2024,161
+23,Santos,Vella,January 2024,188
+24,Del Rosario,Tomas,January 2024,185
+25,Tolentino,Jacklyn,January 2024,170
+26,Gutierrez,Percival,January 2024,200
+27,Manalaysay,Garfield,January 2024,164
+28,Villegas,Lizeth,January 2024,178
+29,Ramos,Carol,January 2024,160
+30,Maceda,Emelia,January 2024,176
+31,Aguilar,Delia,January 2024,164
+32,Castro,John Rafael,January 2024,185
+33,Martinez,Carlos Ian,January 2024,182
+34,Santos,Beatriz,January 2024,168
+1,Garcia,Manuel III,February 2024,194
+2,Lim,Antonio,February 2024,173
+3,Aquino,Bianca Sofia ,February 2024,185
+4,Reyes,Isabella,February 2024,165
+5,Hernandez,Eduard,February 2024,161
+6,Villanueva,Andrea Mae,February 2024,170
+7,San Jose,Brad,February 2024,170
+8,Romualdez,Alice,February 2024,160
+9,Atienza,Rosie,February 2024,162
+10,Alvaro,Roderick,February 2024,174
+11,Salcedo,Anthony,February 2024,183
+12,Lopez,Josie,February 2024,187
+13,Farala,Martha,February 2024,199
+14,Martinez,Leila,February 2024,193
+15,Romualdez,Fredrick,February 2024,175
+16,Mata,Christian,February 2024,181
+17,De Leon,Selena,February 2024,199
+18,San Jose,Allison,February 2024,189
+19,Rosario,Cydney,February 2024,171
+20,Bautista,Mark,February 2024,167
+21,Lazaro,Darlene,February 2024,183
+22,Delos Santos,Kolby,February 2024,187
+23,Santos,Vella,February 2024,172
+24,Del Rosario,Tomas,February 2024,196
+25,Tolentino,Jacklyn,February 2024,181
+26,Gutierrez,Percival,February 2024,200
+27,Manalaysay,Garfield,February 2024,173
+28,Villegas,Lizeth,February 2024,176
+29,Ramos,Carol,February 2024,192
+30,Maceda,Emelia,February 2024,192
+31,Aguilar,Delia,February 2024,165
+32,Castro,John Rafael,February 2024,165
+33,Martinez,Carlos Ian,February 2024,191
+34,Santos,Beatriz,February 2024,163
+1,Garcia,Manuel III,March 2024,162
+2,Lim,Antonio,March 2024,183
+3,Aquino,Bianca Sofia ,March 2024,185
+4,Reyes,Isabella,March 2024,163
+5,Hernandez,Eduard,March 2024,165
+6,Villanueva,Andrea Mae,March 2024,185
+7,San Jose,Brad,March 2024,167
+8,Romualdez,Alice,March 2024,197
+9,Atienza,Rosie,March 2024,200
+10,Alvaro,Roderick,March 2024,191
+11,Salcedo,Anthony,March 2024,164
+12,Lopez,Josie,March 2024,187
+13,Farala,Martha,March 2024,189
+14,Martinez,Leila,March 2024,171
+15,Romualdez,Fredrick,March 2024,170
+16,Mata,Christian,March 2024,183
+17,De Leon,Selena,March 2024,167
+18,San Jose,Allison,March 2024,168
+19,Rosario,Cydney,March 2024,182
+20,Bautista,Mark,March 2024,162
+21,Lazaro,Darlene,March 2024,187
+22,Delos Santos,Kolby,March 2024,192
+23,Santos,Vella,March 2024,185
+24,Del Rosario,Tomas,March 2024,182
+25,Tolentino,Jacklyn,March 2024,162
+26,Gutierrez,Percival,March 2024,176
+27,Manalaysay,Garfield,March 2024,193
+28,Villegas,Lizeth,March 2024,195
+29,Ramos,Carol,March 2024,163
+30,Maceda,Emelia,March 2024,195
+31,Aguilar,Delia,March 2024,184
+32,Castro,John Rafael,March 2024,177
+33,Martinez,Carlos Ian,March 2024,190
+34,Santos,Beatriz,March 2024,171
+1,Garcia,Manuel III,April 2024,164
+2,Lim,Antonio,April 2024,179
+3,Aquino,Bianca Sofia ,April 2024,195
+4,Reyes,Isabella,April 2024,179
+5,Hernandez,Eduard,April 2024,199
+6,Villanueva,Andrea Mae,April 2024,190
+7,San Jose,Brad,April 2024,170
+8,Romualdez,Alice,April 2024,178
+9,Atienza,Rosie,April 2024,165
+10,Alvaro,Roderick,April 2024,194
+11,Salcedo,Anthony,April 2024,166
+12,Lopez,Josie,April 2024,188
+13,Farala,Martha,April 2024,167
+14,Martinez,Leila,April 2024,162
+15,Romualdez,Fredrick,April 2024,164
+16,Mata,Christian,April 2024,161
+17,De Leon,Selena,April 2024,174
+18,San Jose,Allison,April 2024,160
+19,Rosario,Cydney,April 2024,174
+20,Bautista,Mark,April 2024,188
+21,Lazaro,Darlene,April 2024,187
+22,Delos Santos,Kolby,April 2024,196
+23,Santos,Vella,April 2024,161
+24,Del Rosario,Tomas,April 2024,176
+25,Tolentino,Jacklyn,April 2024,174
+26,Gutierrez,Percival,April 2024,199
+27,Manalaysay,Garfield,April 2024,179
+28,Villegas,Lizeth,April 2024,189
+29,Ramos,Carol,April 2024,178
+30,Maceda,Emelia,April 2024,171
+31,Aguilar,Delia,April 2024,193
+32,Castro,John Rafael,April 2024,178
+33,Martinez,Carlos Ian,April 2024,185
+34,Santos,Beatriz,April 2024,187
+1,Garcia,Manuel III,May 2024,171
+2,Lim,Antonio,May 2024,188
+3,Aquino,Bianca Sofia ,May 2024,194
+4,Reyes,Isabella,May 2024,179
+5,Hernandez,Eduard,May 2024,195
+6,Villanueva,Andrea Mae,May 2024,192
+7,San Jose,Brad,May 2024,195
+8,Romualdez,Alice,May 2024,166
+9,Atienza,Rosie,May 2024,190
+10,Alvaro,Roderick,May 2024,183
+11,Salcedo,Anthony,May 2024,190
+12,Lopez,Josie,May 2024,172
+13,Farala,Martha,May 2024,176
+14,Martinez,Leila,May 2024,180
+15,Romualdez,Fredrick,May 2024,199
+16,Mata,Christian,May 2024,180
+17,De Leon,Selena,May 2024,167
+18,San Jose,Allison,May 2024,183
+19,Rosario,Cydney,May 2024,190
+20,Bautista,Mark,May 2024,193
+21,Lazaro,Darlene,May 2024,173
+22,Delos Santos,Kolby,May 2024,173
+23,Santos,Vella,May 2024,182
+24,Del Rosario,Tomas,May 2024,191
+25,Tolentino,Jacklyn,May 2024,194
+26,Gutierrez,Percival,May 2024,169
+27,Manalaysay,Garfield,May 2024,162
+28,Villegas,Lizeth,May 2024,169
+29,Ramos,Carol,May 2024,189
+30,Maceda,Emelia,May 2024,170
+31,Aguilar,Delia,May 2024,198
+32,Castro,John Rafael,May 2024,180
+33,Martinez,Carlos Ian,May 2024,198
+34,Santos,Beatriz,May 2024,170
+1,Garcia,Manuel III,June 2024,170
+2,Lim,Antonio,June 2024,173
+3,Aquino,Bianca Sofia ,June 2024,200
+4,Reyes,Isabella,June 2024,179
+5,Hernandez,Eduard,June 2024,199
+6,Villanueva,Andrea Mae,June 2024,177
+7,San Jose,Brad,June 2024,160
+8,Romualdez,Alice,June 2024,189
+9,Atienza,Rosie,June 2024,184
+10,Alvaro,Roderick,June 2024,172
+11,Salcedo,Anthony,June 2024,165
+12,Lopez,Josie,June 2024,172
+13,Farala,Martha,June 2024,175
+14,Martinez,Leila,June 2024,183
+15,Romualdez,Fredrick,June 2024,173
+16,Mata,Christian,June 2024,160
+17,De Leon,Selena,June 2024,190
+18,San Jose,Allison,June 2024,179
+19,Rosario,Cydney,June 2024,200
+20,Bautista,Mark,June 2024,187
+21,Lazaro,Darlene,June 2024,198
+22,Delos Santos,Kolby,June 2024,184
+23,Santos,Vella,June 2024,193
+24,Del Rosario,Tomas,June 2024,187
+25,Tolentino,Jacklyn,June 2024,173
+26,Gutierrez,Percival,June 2024,191
+27,Manalaysay,Garfield,June 2024,176
+28,Villegas,Lizeth,June 2024,165
+29,Ramos,Carol,June 2024,171
+30,Maceda,Emelia,June 2024,176
+31,Aguilar,Delia,June 2024,188
+32,Castro,John Rafael,June 2024,187
+33,Martinez,Carlos Ian,June 2024,180
+34,Santos,Beatriz,June 2024,199
+1,Garcia,Manuel III,July 2024,185
+2,Lim,Antonio,July 2024,188
+3,Aquino,Bianca Sofia ,July 2024,190
+4,Reyes,Isabella,July 2024,169
+5,Hernandez,Eduard,July 2024,194
+6,Villanueva,Andrea Mae,July 2024,163
+7,San Jose,Brad,July 2024,187
+8,Romualdez,Alice,July 2024,168
+9,Atienza,Rosie,July 2024,180
+10,Alvaro,Roderick,July 2024,168
+11,Salcedo,Anthony,July 2024,185
+12,Lopez,Josie,July 2024,172
+13,Farala,Martha,July 2024,195
+14,Martinez,Leila,July 2024,183
+15,Romualdez,Fredrick,July 2024,186
+16,Mata,Christian,July 2024,162
+17,De Leon,Selena,July 2024,172
+18,San Jose,Allison,July 2024,184
+19,Rosario,Cydney,July 2024,188
+20,Bautista,Mark,July 2024,164
+21,Lazaro,Darlene,July 2024,184
+22,Delos Santos,Kolby,July 2024,177
+23,Santos,Vella,July 2024,194
+24,Del Rosario,Tomas,July 2024,161
+25,Tolentino,Jacklyn,July 2024,175
+26,Gutierrez,Percival,July 2024,163
+27,Manalaysay,Garfield,July 2024,166
+28,Villegas,Lizeth,July 2024,166
+29,Ramos,Carol,July 2024,163
+30,Maceda,Emelia,July 2024,176
+31,Aguilar,Delia,July 2024,175
+32,Castro,John Rafael,July 2024,176
+33,Martinez,Carlos Ian,July 2024,192
+34,Santos,Beatriz,July 2024,196
+1,Garcia,Manuel III,August 2024,198
+2,Lim,Antonio,August 2024,169
+3,Aquino,Bianca Sofia ,August 2024,185
+4,Reyes,Isabella,August 2024,195
+5,Hernandez,Eduard,August 2024,195
+6,Villanueva,Andrea Mae,August 2024,177
+7,San Jose,Brad,August 2024,187
+8,Romualdez,Alice,August 2024,185
+9,Atienza,Rosie,August 2024,187
+10,Alvaro,Roderick,August 2024,172
+11,Salcedo,Anthony,August 2024,172
+12,Lopez,Josie,August 2024,199
+13,Farala,Martha,August 2024,165
+14,Martinez,Leila,August 2024,179
+15,Romualdez,Fredrick,August 2024,199
+16,Mata,Christian,August 2024,193
+17,De Leon,Selena,August 2024,176
+18,San Jose,Allison,August 2024,182
+19,Rosario,Cydney,August 2024,184
+20,Bautista,Mark,August 2024,167
+21,Lazaro,Darlene,August 2024,182
+22,Delos Santos,Kolby,August 2024,191
+23,Santos,Vella,August 2024,177
+24,Del Rosario,Tomas,August 2024,191
+25,Tolentino,Jacklyn,August 2024,179
+26,Gutierrez,Percival,August 2024,180
+27,Manalaysay,Garfield,August 2024,171
+28,Villegas,Lizeth,August 2024,193
+29,Ramos,Carol,August 2024,165
+30,Maceda,Emelia,August 2024,166
+31,Aguilar,Delia,August 2024,168
+32,Castro,John Rafael,August 2024,164
+33,Martinez,Carlos Ian,August 2024,190
+34,Santos,Beatriz,August 2024,193
+1,Garcia,Manuel III,September 2024,197
+2,Lim,Antonio,September 2024,172
+3,Aquino,Bianca Sofia ,September 2024,175
+4,Reyes,Isabella,September 2024,199
+5,Hernandez,Eduard,September 2024,200
+6,Villanueva,Andrea Mae,September 2024,182
+7,San Jose,Brad,September 2024,193
+8,Romualdez,Alice,September 2024,196
+9,Atienza,Rosie,September 2024,184
+10,Alvaro,Roderick,September 2024,171
+11,Salcedo,Anthony,September 2024,160
+12,Lopez,Josie,September 2024,186
+13,Farala,Martha,September 2024,174
+14,Martinez,Leila,September 2024,185
+15,Romualdez,Fredrick,September 2024,196
+16,Mata,Christian,September 2024,171
+17,De Leon,Selena,September 2024,185
+18,San Jose,Allison,September 2024,188
+19,Rosario,Cydney,September 2024,191
+20,Bautista,Mark,September 2024,165
+21,Lazaro,Darlene,September 2024,181
+22,Delos Santos,Kolby,September 2024,187
+23,Santos,Vella,September 2024,166
+24,Del Rosario,Tomas,September 2024,175
+25,Tolentino,Jacklyn,September 2024,184
+26,Gutierrez,Percival,September 2024,179
+27,Manalaysay,Garfield,September 2024,193
+28,Villegas,Lizeth,September 2024,161
+29,Ramos,Carol,September 2024,177
+30,Maceda,Emelia,September 2024,163
+31,Aguilar,Delia,September 2024,187
+32,Castro,John Rafael,September 2024,180
+33,Martinez,Carlos Ian,September 2024,190
+34,Santos,Beatriz,September 2024,169
+1,Garcia,Manuel III,October 2024,178
+2,Lim,Antonio,October 2024,192
+3,Aquino,Bianca Sofia ,October 2024,188
+4,Reyes,Isabella,October 2024,181
+5,Hernandez,Eduard,October 2024,192
+6,Villanueva,Andrea Mae,October 2024,161
+7,San Jose,Brad,October 2024,168
+8,Romualdez,Alice,October 2024,186
+9,Atienza,Rosie,October 2024,183
+10,Alvaro,Roderick,October 2024,199
+11,Salcedo,Anthony,October 2024,175
+12,Lopez,Josie,October 2024,169
+13,Farala,Martha,October 2024,186
+14,Martinez,Leila,October 2024,189
+15,Romualdez,Fredrick,October 2024,198
+16,Mata,Christian,October 2024,196
+17,De Leon,Selena,October 2024,171
+18,San Jose,Allison,October 2024,198
+19,Rosario,Cydney,October 2024,190
+20,Bautista,Mark,October 2024,183
+21,Lazaro,Darlene,October 2024,180
+22,Delos Santos,Kolby,October 2024,188
+23,Santos,Vella,October 2024,160
+24,Del Rosario,Tomas,October 2024,163
+25,Tolentino,Jacklyn,October 2024,160
+26,Gutierrez,Percival,October 2024,200
+27,Manalaysay,Garfield,October 2024,179
+28,Villegas,Lizeth,October 2024,175
+29,Ramos,Carol,October 2024,168
+30,Maceda,Emelia,October 2024,160
+31,Aguilar,Delia,October 2024,184
+32,Castro,John Rafael,October 2024,199
+33,Martinez,Carlos Ian,October 2024,192
+34,Santos,Beatriz,October 2024,192
+1,Garcia,Manuel III,November 2024,180
+2,Lim,Antonio,November 2024,193
+3,Aquino,Bianca Sofia ,November 2024,166
+4,Reyes,Isabella,November 2024,182
+5,Hernandez,Eduard,November 2024,166
+6,Villanueva,Andrea Mae,November 2024,176
+7,San Jose,Brad,November 2024,162
+8,Romualdez,Alice,November 2024,172
+9,Atienza,Rosie,November 2024,186
+10,Alvaro,Roderick,November 2024,192
+11,Salcedo,Anthony,November 2024,180
+12,Lopez,Josie,November 2024,197
+13,Farala,Martha,November 2024,191
+14,Martinez,Leila,November 2024,191
+15,Romualdez,Fredrick,November 2024,195
+16,Mata,Christian,November 2024,162
+17,De Leon,Selena,November 2024,178
+18,San Jose,Allison,November 2024,186
+19,Rosario,Cydney,November 2024,166
+20,Bautista,Mark,November 2024,186
+21,Lazaro,Darlene,November 2024,186
+22,Delos Santos,Kolby,November 2024,175
+23,Santos,Vella,November 2024,187
+24,Del Rosario,Tomas,November 2024,160
+25,Tolentino,Jacklyn,November 2024,187
+26,Gutierrez,Percival,November 2024,180
+27,Manalaysay,Garfield,November 2024,175
+28,Villegas,Lizeth,November 2024,160
+29,Ramos,Carol,November 2024,197
+30,Maceda,Emelia,November 2024,166
+31,Aguilar,Delia,November 2024,199
+32,Castro,John Rafael,November 2024,198
+33,Martinez,Carlos Ian,November 2024,165
+34,Santos,Beatriz,November 2024,177
+1,Garcia,Manuel III,December 2024,198
+2,Lim,Antonio,December 2024,164
+3,Aquino,Bianca Sofia ,December 2024,171
+4,Reyes,Isabella,December 2024,182
+5,Hernandez,Eduard,December 2024,169
+6,Villanueva,Andrea Mae,December 2024,176
+7,San Jose,Brad,December 2024,165
+8,Romualdez,Alice,December 2024,161
+9,Atienza,Rosie,December 2024,187
+10,Alvaro,Roderick,December 2024,187
+11,Salcedo,Anthony,December 2024,162
+12,Lopez,Josie,December 2024,177
+13,Farala,Martha,December 2024,185
+14,Martinez,Leila,December 2024,198
+15,Romualdez,Fredrick,December 2024,191
+16,Mata,Christian,December 2024,171
+17,De Leon,Selena,December 2024,183
+18,San Jose,Allison,December 2024,187
+19,Rosario,Cydney,December 2024,189
+20,Bautista,Mark,December 2024,170
+21,Lazaro,Darlene,December 2024,176
+22,Delos Santos,Kolby,December 2024,166
+23,Santos,Vella,December 2024,169
+24,Del Rosario,Tomas,December 2024,196
+25,Tolentino,Jacklyn,December 2024,191
+26,Gutierrez,Percival,December 2024,173
+27,Manalaysay,Garfield,December 2024,172
+28,Villegas,Lizeth,December 2024,162
+29,Ramos,Carol,December 2024,191
+30,Maceda,Emelia,December 2024,173
+31,Aguilar,Delia,December 2024,179
+32,Castro,John Rafael,December 2024,176
+33,Martinez,Carlos Ian,December 2024,178
+34,Santos,Beatriz,December 2024,193

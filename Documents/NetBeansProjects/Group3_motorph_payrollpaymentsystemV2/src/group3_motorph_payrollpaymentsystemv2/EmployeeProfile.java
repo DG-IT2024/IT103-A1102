@@ -5,7 +5,6 @@ import group3_motorph_payrollpaymentsystemV2.Filehandling;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,10 +13,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class EmployeeProfile extends javax.swing.JFrame {
 
-    public EmployeeProfile()throws FileNotFoundException, IOException {
+    public EmployeeProfile() throws FileNotFoundException, IOException {
         initComponents();
+        String csvFile = "MotorPHEmployeeData.csv";
 
-        String csvFile = "MotorPHEmployeeData.csv"; // Use your file path here
         csvRun(csvFile);
     }
 
@@ -195,7 +194,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("EMPLOYEE INFORMATION");
 
         jTextFieldBasicSalary.addActionListener(new java.awt.event.ActionListener() {
@@ -349,9 +348,9 @@ public class EmployeeProfile extends javax.swing.JFrame {
                             .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -445,6 +444,12 @@ public class EmployeeProfile extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane2MouseClicked(evt);
+            }
+        });
+
         jTableEmployeeList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -454,7 +459,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -552,7 +557,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void csvRun(String csvFile)  throws FileNotFoundException, IOException {
+    private void csvRun(String csvFile) throws FileNotFoundException, IOException {
         List<String[]> records = Filehandling.readCSV(csvFile);
         List<Employee> employees = Filehandling.parseRecords(records);
         informationTable(employees);
@@ -635,6 +640,31 @@ public class EmployeeProfile extends javax.swing.JFrame {
 
     private void jButtonViewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewEmployeeActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
+        int selectedRowIndex = jTableEmployeeList.getSelectedRow();
+
+        PayrollProcessing viewEmployeeFrame;
+        
+        try {
+            viewEmployeeFrame = new PayrollProcessing();
+            
+            // Display the window
+            viewEmployeeFrame.setVisible(true);
+            viewEmployeeFrame.pack();
+            viewEmployeeFrame.setDefaultCloseOperation(PayrollProcessing.DISPOSE_ON_CLOSE); //if viewEmployeeFrame is close, main frame will not close.
+            
+            
+            // Display the data in viewEmployeeFrame
+            viewEmployeeFrame.jTextFieldEmployeeNum.setText(model.getValueAt(selectedRowIndex, 0).toString());
+            viewEmployeeFrame.jTextFieldLastName.setText(model.getValueAt(selectedRowIndex, 1).toString());
+            viewEmployeeFrame.jTextFieldFirstName.setText(model.getValueAt(selectedRowIndex, 2).toString());
+            viewEmployeeFrame.jTextFieldBasicSalary.setText(model.getValueAt(selectedRowIndex, 13).toString());
+
+        } catch (IOException ex) {
+            Logger.getLogger(EmployeeProfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jButtonViewEmployeeActionPerformed
 
     private void jButtonProfileUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfileUpdateActionPerformed
@@ -813,6 +843,10 @@ public class EmployeeProfile extends javax.swing.JFrame {
 
         allowOnlyDate(evt);
     }//GEN-LAST:event_jTextFieldBirthdayKeyTyped
+
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane2MouseClicked
 
     /**
      * @param args the command line arguments

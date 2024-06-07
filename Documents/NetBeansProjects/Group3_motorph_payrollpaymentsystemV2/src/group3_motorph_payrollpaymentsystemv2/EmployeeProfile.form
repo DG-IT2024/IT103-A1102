@@ -110,7 +110,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jTextFieldBasicSalary" min="-2" pref="206" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" min="-2" pref="207" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -244,9 +244,9 @@
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldFirstName" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -460,7 +460,7 @@
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
+              <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="EMPLOYEE INFORMATION"/>
           </Properties>
@@ -560,6 +560,9 @@
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jScrollPane2MouseClicked"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
@@ -582,7 +585,7 @@
                 <Column editable="false" title="Immediate Supervisor" type="java.lang.Object"/>
                 <Column editable="false" title="Basic Salary" type="java.lang.Object"/>
                 <Column editable="false" title="Rice Subsidy" type="java.lang.Object"/>
-                <Column editable="true" title="Phone Allowance" type="java.lang.Object"/>
+                <Column editable="false" title="Phone Allowance" type="java.lang.Object"/>
                 <Column editable="false" title="Clothing Allowance" type="java.lang.Object"/>
               </Table>
             </Property>
