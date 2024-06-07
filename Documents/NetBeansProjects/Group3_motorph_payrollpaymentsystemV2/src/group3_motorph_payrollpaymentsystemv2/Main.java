@@ -4,10 +4,9 @@
  */
 package group3_motorph_payrollpaymentsystemv2;
 
-import group3_motorph_payrollpaymentsystemV2.Employee;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 /**
  *

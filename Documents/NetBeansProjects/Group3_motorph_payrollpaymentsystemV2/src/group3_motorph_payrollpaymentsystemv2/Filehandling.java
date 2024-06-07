@@ -5,10 +5,16 @@
 package group3_motorph_payrollpaymentsystemV2;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class Filehandling {
 
@@ -17,8 +23,6 @@ public class Filehandling {
 //        List<String[]> records = readCSV();
 //        List<Employee> employees = parseRecords(records);
 //        printEmployees(employees);
-    
-
     // Method to read CSV file and return records
     public static List<String[]> readCSV(String csvFile) throws IOException {
 
@@ -67,6 +71,34 @@ public class Filehandling {
         }
     }
 
+    public static void exportTableToCSV(JTable table) {
+        
+        String csvFile1 = "MotorPH_Update.csv";
+        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile1))) {
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
 
+            // Write column headers
+            int columnCount = model.getColumnCount();
+            String[] columnNames = new String[columnCount];
+            for (int i = 0; i < columnCount; i++) {
+                columnNames[i] = model.getColumnName(i);
+            }
+            writer.writeNext(columnNames);
+
+            // Write rows
+            int rowCount = model.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                String[] rowData = new String[columnCount];
+                for (int j = 0; j < columnCount; j++) {
+                    rowData[j] = model.getValueAt(i, j).toString();
+                }
+                writer.writeNext(rowData);
+            }
+
+            System.out.println("Data exported to CSV file successfully.");
+        } catch (IOException e) {
+            System.out.println("Failed to export data to CSV file.");
+        }
+    }
 
 }

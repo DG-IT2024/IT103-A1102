@@ -1,24 +1,29 @@
 package group3_motorph_payrollpaymentsystemv2;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import group3_motorph_payrollpaymentsystemV2.Employee;
+import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class EmployeeProfile extends javax.swing.JFrame {
 
-    private DefaultTableModel tableModel;
-
     public EmployeeProfile() throws FileNotFoundException, IOException {
         initComponents();
-        List<String[]> records = readCSV();
+
+        String csvFile = "MotorPHEmployeeData.csv"; // Use your file path here
+
+        List<String[]> records = readCSV(csvFile);
         List<Employee> employees = parseRecordsy(records);
         informationTable(employees);
 
@@ -78,6 +83,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
         jButtonProfileAdd = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmployeeList = new javax.swing.JTable();
+        jButtonUpdateDBS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,13 +166,30 @@ public class EmployeeProfile extends javax.swing.JFrame {
 
         jLabel15.setText("Rice Subsidy");
 
+        jTextFieldRiceSubsidy.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldRiceSubsidyKeyTyped(evt);
+            }
+        });
+
         jLabel17.setText("Phone Allowance");
+
+        jTextFieldPhoneAllow.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPhoneAllowKeyTyped(evt);
+            }
+        });
 
         jLabel19.setText("Clothing  Allowance");
 
         jTextFieldClothAllow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldClothAllowActionPerformed(evt);
+            }
+        });
+        jTextFieldClothAllow.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldClothAllowKeyTyped(evt);
             }
         });
 
@@ -176,6 +199,11 @@ public class EmployeeProfile extends javax.swing.JFrame {
         jTextFieldBasicSalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBasicSalaryActionPerformed(evt);
+            }
+        });
+        jTextFieldBasicSalary.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldBasicSalaryKeyTyped(evt);
             }
         });
 
@@ -222,7 +250,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldBasicSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -243,12 +271,10 @@ public class EmployeeProfile extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(153, 153, 153)
-                                    .addComponent(jTextFieldPagibigNum))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(153, 153, 153)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldPagibigNum)
                                     .addComponent(jTextFieldTINnum)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -370,9 +396,9 @@ public class EmployeeProfile extends javax.swing.JFrame {
                             .addComponent(jTextFieldRiceSubsidy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldPhoneAllow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jTextFieldPhoneAllow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldClothAllow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,14 +443,12 @@ public class EmployeeProfile extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane2.setAutoscrolls(true);
-
         jTableEmployeeList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Employee", "Last Name", "First Name", "Birthday", "Address", "Phone Number", "SSS #", "Philhealth #", "TIN ", "Pag-ibig #", "Status", "Position", "Immediate Superviso", "Basic Salary", "Rice Subsidy", "Phone Allowance", "Clothing Allowance"
+                "Employee", "Last Name", "First Name", "Birthday", "Address", "Phone Number", "SSS #", "Philhealth #", "TIN ", "Pag-ibig #", "Status", "Position", "Immediate Supervisor", "Basic Salary", "Rice Subsidy", "Phone Allowance", "Clothing Allowance"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -467,6 +491,13 @@ public class EmployeeProfile extends javax.swing.JFrame {
             jTableEmployeeList.getColumnModel().getColumn(16).setMinWidth(100);
         }
 
+        jButtonUpdateDBS.setText("Update Database");
+        jButtonUpdateDBS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateDBSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -475,40 +506,44 @@ public class EmployeeProfile extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 932, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 922, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(17, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonClear, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonProfileDelete, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonViewEmployee, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonUpdateDBS, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButtonProfileAdd)
-                                .addComponent(jButtonProfileUpdate)))
-                        .addGap(26, 26, 26))))
+                                .addComponent(jButtonProfileUpdate)
+                                .addComponent(jButtonProfileDelete)))
+                        .addGap(41, 41, 41))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addComponent(jButtonClear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonViewEmployee)
-                        .addGap(53, 53, 53)
-                        .addComponent(jButtonProfileDelete)
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonProfileAdd)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonProfileUpdate)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonProfileAdd)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonProfileDelete)
+                        .addGap(39, 39, 39)
+                        .addComponent(jButtonUpdateDBS)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -516,15 +551,18 @@ public class EmployeeProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Method to read CSV file and return records
-    public static List<String[]> readCSV() throws IOException {
-
-        String csvFile = "MotorPHEmployeeData.csv"; // Use your file path here
+    public static List<String[]> readCSV(String csvFile) throws IOException {
 
         try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
             List<String[]> records = reader.readAll();
             // Assuming the first row is the header
             records.remove(0);
             return records;
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "File not found: " + csvFile, "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
+            throw e; // rethrow the exception to indicate failure
+
         }
     }
 
@@ -582,6 +620,42 @@ public class EmployeeProfile extends javax.swing.JFrame {
         }
     }
 
+    public static void exportTableToCSV(JTable table) {
+
+        String csvFile1 = "MotorPH_Update.csv";
+        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile1))) {
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+            // Write column headers
+            int columnCount = model.getColumnCount();
+            String[] columnNames = new String[columnCount];
+            for (int i = 0; i < columnCount; i++) {
+                columnNames[i] = model.getColumnName(i);
+            }
+            writer.writeNext(columnNames);
+
+            // Write rows
+            int rowCount = model.getRowCount();
+            for (int i = 0; i < rowCount; i++) {
+                String[] rowData = new String[columnCount];
+                for (int j = 0; j < columnCount; j++) {
+                    rowData[j] = model.getValueAt(i, j).toString();
+                }
+                writer.writeNext(rowData);
+            }
+            JOptionPane.showMessageDialog(null, "Database updated successfully");
+        } catch (IOException e) {
+            System.out.println("Failed to update database.");
+        }
+    }
+
+    
+     public static void allowOnlyDigits(KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
         // TODO add your handling code here:
@@ -615,7 +689,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
         model.removeRow(selectedRowIndex);
 
-        JOptionPane.showMessageDialog(this, "Employee deleted successfully!");
+        JOptionPane.showMessageDialog(this, "Employee deleted successfully");
     }//GEN-LAST:event_jButtonProfileDeleteActionPerformed
 
     private void jButtonViewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewEmployeeActionPerformed
@@ -647,7 +721,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
             model.setValueAt(jTextFieldPhoneAllow.getText(), selectedRowIndex, 15);
             model.setValueAt(jTextFieldClothAllow.getText(), selectedRowIndex, 16);
 
-            JOptionPane.showMessageDialog(this, "Employee information Updated successfully!");
+            JOptionPane.showMessageDialog(this, "Employee information Updated successfully");
 
         } else {
             JOptionPane.showMessageDialog(null, "Error");
@@ -731,13 +805,15 @@ public class EmployeeProfile extends javax.swing.JFrame {
 
     private void jTextFieldStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStatusActionPerformed
         // TODO add your handling code here:
+
+
     }//GEN-LAST:event_jTextFieldStatusActionPerformed
 
     private void jButtonProfileAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfileAddActionPerformed
         // TODO add your handling code here:
-        
+
         DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
-               
+
         model.addRow(new Object[]{
             jTextFieldEmployeeNum.getText(),
             jTextFieldLastName.getText(),
@@ -758,8 +834,38 @@ public class EmployeeProfile extends javax.swing.JFrame {
             jTextFieldClothAllow.getText()});
 
         JOptionPane.showMessageDialog(this,
-                "Employee added successfully!");        
+                "Employee added successfully!");
     }//GEN-LAST:event_jButtonProfileAddActionPerformed
+
+    private void jButtonUpdateDBSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDBSActionPerformed
+        // TODO add your handling code here:
+        exportTableToCSV(jTableEmployeeList);
+    }//GEN-LAST:event_jButtonUpdateDBSActionPerformed
+
+    
+    
+
+    private void jTextFieldBasicSalaryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBasicSalaryKeyTyped
+        // TODO add your handling code here:
+       allowOnlyDigits( evt) ;
+    }//GEN-LAST:event_jTextFieldBasicSalaryKeyTyped
+
+    private void jTextFieldRiceSubsidyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRiceSubsidyKeyTyped
+        // TODO add your handling code here:
+        
+        allowOnlyDigits(evt);
+    }//GEN-LAST:event_jTextFieldRiceSubsidyKeyTyped
+
+    private void jTextFieldPhoneAllowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPhoneAllowKeyTyped
+        // TODO add your handling code here:
+        allowOnlyDigits(evt);
+        
+    }//GEN-LAST:event_jTextFieldPhoneAllowKeyTyped
+
+    private void jTextFieldClothAllowKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldClothAllowKeyTyped
+        // TODO add your handling code here:
+        allowOnlyDigits(evt);
+    }//GEN-LAST:event_jTextFieldClothAllowKeyTyped
 
     /**
      * @param args the command line arguments
@@ -808,6 +914,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
     private javax.swing.JButton jButtonProfileAdd;
     private javax.swing.JButton jButtonProfileDelete;
     private javax.swing.JButton jButtonProfileUpdate;
+    private javax.swing.JButton jButtonUpdateDBS;
     private javax.swing.JButton jButtonViewEmployee;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

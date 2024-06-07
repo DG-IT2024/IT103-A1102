@@ -26,23 +26,24 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="932" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="922" max="-2" attributes="0"/>
+                      <EmptySpace pref="17" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButtonClear" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonProfileDelete" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonViewEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonUpdateDBS" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Component id="jButtonProfileAdd" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonProfileUpdate" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonProfileDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -51,25 +52,29 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jButtonClear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButtonViewEmployee" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                      <Component id="jButtonProfileDelete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jButtonProfileAdd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonProfileUpdate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonProfileAdd" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonProfileDelete" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jButtonUpdateDBS" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="107" max="-2" attributes="0"/>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,7 +110,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jTextFieldBasicSalary" min="-2" pref="206" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" min="-2" pref="207" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -135,13 +140,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="153" pref="153" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jTextFieldPagibigNum" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                                       <Component id="jTextFieldTINnum" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -304,9 +306,9 @@
                               <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldPhoneAllow" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPhoneAllow" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -426,6 +428,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldRiceSubsidy">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldRiceSubsidyKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
         </Component>
@@ -435,6 +440,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPhoneAllow">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldPhoneAllowKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
@@ -444,6 +452,7 @@
         <Component class="javax.swing.JTextField" name="jTextFieldClothAllow">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldClothAllowActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldClothAllowKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -457,6 +466,7 @@
         <Component class="javax.swing.JTextField" name="jTextFieldBasicSalary">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBasicSalaryActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBasicSalaryKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelBasicSalary">
@@ -548,9 +558,6 @@
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <Properties>
-        <Property name="autoscrolls" type="boolean" value="true"/>
-      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
@@ -570,7 +577,7 @@
                 <Column editable="false" title="Pag-ibig #" type="java.lang.Object"/>
                 <Column editable="false" title="Status" type="java.lang.Object"/>
                 <Column editable="false" title="Position" type="java.lang.Object"/>
-                <Column editable="false" title="Immediate Superviso" type="java.lang.Object"/>
+                <Column editable="false" title="Immediate Supervisor" type="java.lang.Object"/>
                 <Column editable="false" title="Basic Salary" type="java.lang.Object"/>
                 <Column editable="false" title="Rice Subsidy" type="java.lang.Object"/>
                 <Column editable="true" title="Phone Allowance" type="java.lang.Object"/>
@@ -679,5 +686,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jButtonUpdateDBS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update Database"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateDBSActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
