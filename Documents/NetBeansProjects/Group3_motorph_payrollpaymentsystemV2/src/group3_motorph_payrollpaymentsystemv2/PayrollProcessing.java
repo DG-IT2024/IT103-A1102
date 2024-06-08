@@ -18,6 +18,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import com.opencsv.CSVWriter;
+import java.io.FileWriter;
 
 /**
  *
@@ -125,7 +127,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
     private List<Integer> populateByYear() {
         List<Integer> years = new ArrayList<>();
         int currentYear = Year.now().getValue();
-        for (int i = currentYear - 10; i <= currentYear; i++) {  //assuming company store data for 5years
+        for (int i = currentYear - 4; i <= currentYear; i++) {  //assuming company store data for 5years
             years.add(i);
         }
         return years;
@@ -153,16 +155,93 @@ public class PayrollProcessing extends javax.swing.JFrame {
 
     public Integer matchWorkedHours() {
         String searchId = jTextFieldEmployeeNum.getText();
-        String searchPeriod = jComboBoxCoveredMonth.getSelectedItem().toString()+" "+jComboBoxCoveredYear.getSelectedItem().toString();
+        String searchPeriod = jComboBoxCoveredMonth.getSelectedItem().toString() + " " + jComboBoxCoveredYear.getSelectedItem().toString();
 
         for (int i = 0; i < employeeData.size(); i++) {
             EmployeeHoursWorked employeehoursWorked = employeeData.get(i);
             if (employeehoursWorked.getEmployeeNumber().equals(searchId) && employeehoursWorked.getCoveredPeriod().equals(searchPeriod)) {
-            return i;
-                    
+                return i;
+
             }
         }
         return -1; // Return -1 if no match is found
+    }
+
+    public String[] createHeadertoRecords() {
+
+        String csvFile = "payrollRecords.csv";
+
+        String[] headers = {
+            "Employee No.",
+            "Last Name",
+            "First Name",
+            "Worked Hours",
+            "Basic Salary",
+            "Hourly Rate",
+            "Gross Income",
+            "SSS Deduction ",
+            "Philhealth Deduction ",
+            "Pagibig Deduction",
+            "Withholding Tax",
+            "Covered Month",
+            "Covered Year",
+            "Benefits",
+            "Total Deductions",
+            "Take-Home pay"};
+
+        return headers;
+    }
+
+    public static boolean isPayrollRecordsCsvEmpty(String csvFile) {
+
+        try (CSVReader csvReader = new CSVReader(new FileReader(csvFile))) {
+            String[] nextLine = csvReader.readNext();
+
+            // If nextLine is null, the file is empty
+            return nextLine == null;
+        } catch (IOException e) {
+           
+            // You may want to handle the exception differently depending on your requirements
+            return true;
+        }
+    }
+
+    public void updatePayrollRecords() throws IOException {
+        String csvFile = "PayrollRecords.csv";
+        
+        boolean isEmpty =isPayrollRecordsCsvEmpty(csvFile);
+
+        String[] entry = {
+            jTextFieldEmployeeNum.getText(),
+            jTextFieldLastName.getText(),
+            jTextFieldFirstName.getText(),
+            jTextFieldWorkedHours.getText(),
+            jTextFieldBasicSalary.getText(),
+            jTextFieldHourlyRate.getText(),
+            jTextFieldGrossIncome.getText(),
+            jTextSssDeduction.getText(),
+            jTextFieldPhilHealthDeduction.getText(),
+            jTextFieldPagibigDeduction.getText(),
+            jTextFieldWHT.getText(),
+            jComboBoxCoveredMonth.getSelectedItem().toString(),
+            jComboBoxCoveredYear.getSelectedItem().toString(),
+            jTextFieldBenefits.getText(),
+            jTextFieldTotalDeductions.getText(),
+            jTextFieldTakeHomePay.getText()
+        };
+
+        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile, true))) {
+
+            if(isEmpty){
+                writer.writeNext(createHeadertoRecords());
+            }
+            
+            writer.writeNext(entry);
+            JOptionPane.showMessageDialog(null, "Entry added successfully.");
+        } catch (IOException ex) {
+
+        }
+
     }
 
     public void processPayroll() {
@@ -268,6 +347,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
         jComboBoxCoveredMonth = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jButtonAddtoRecords = new javax.swing.JButton();
 
         jLabel21.setText("Month");
 
@@ -410,7 +490,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
             }
         });
 
-        jLabel17.setText("TAKE HOME PAY");
+        jLabel17.setText("TAKE-HOME PAY");
 
         jTextFieldHourlyRate.setEditable(false);
         jTextFieldHourlyRate.addActionListener(new java.awt.event.ActionListener() {
@@ -433,6 +513,13 @@ public class PayrollProcessing extends javax.swing.JFrame {
         jLabel20.setText("Month");
 
         jLabel23.setText("Year");
+
+        jButtonAddtoRecords.setText("Add to Records");
+        jButtonAddtoRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddtoRecordsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -464,7 +551,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
                                             .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldEmployeeNum, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(28, Short.MAX_VALUE)
+                                .addContainerGap(27, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,45 +577,50 @@ public class PayrollProcessing extends javax.swing.JFrame {
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
                                         .addComponent(jTextSssDeduction, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel15)
+                                                    .addComponent(jLabel14))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jTextFieldGrossIncome_S, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextFieldBenefits, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextFieldTotalDeductions, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel17)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextFieldTakeHomePay, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel13))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel15)
-                                            .addComponent(jLabel14))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBoxCoveredMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel6))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldGrossIncome_S, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldBenefits, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel16)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldTotalDeductions, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel17)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldTakeHomePay, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel13))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxCoveredMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel23)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButtonCompute)
-                                        .addComponent(jComboBoxCoveredYear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(8, 8, 8))))
+                                            .addComponent(jLabel23)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jButtonCompute)
+                                                .addComponent(jComboBoxCoveredYear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(8, 8, 8))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(jButtonAddtoRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(217, 217, 217)
                         .addComponent(jLabel1)
                         .addGap(55, 55, 55)
                         .addComponent(jLabel2)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -562,7 +654,9 @@ public class PayrollProcessing extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldTakeHomePay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17)))
+                            .addComponent(jLabel17))
+                        .addGap(26, 26, 26)
+                        .addComponent(jButtonAddtoRecords, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -654,11 +748,11 @@ public class PayrollProcessing extends javax.swing.JFrame {
 
     private void jButtonComputeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComputeActionPerformed
         // TODO add your handling code here:
-        
+
         int searchIndex = matchWorkedHours();
-        String workedHours =  employeeData.get(searchIndex).getNoOfHoursWorked();
+        String workedHours = employeeData.get(searchIndex).getNoOfHoursWorked();
         jTextFieldWorkedHours.setText(workedHours);
-        
+
         processPayroll();
 
     }//GEN-LAST:event_jButtonComputeActionPerformed
@@ -707,6 +801,16 @@ public class PayrollProcessing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBasicSalaryActionPerformed
 
+    private void jButtonAddtoRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddtoRecordsActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            updatePayrollRecords();
+        } catch (IOException ex) {
+            Logger.getLogger(PayrollProcessing.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonAddtoRecordsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -747,6 +851,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAddtoRecords;
     private javax.swing.JButton jButtonCompute;
     private javax.swing.JComboBox<String> jComboBoxCoveredMonth;
     private javax.swing.JComboBox<String> jComboBoxCoveredYear;
