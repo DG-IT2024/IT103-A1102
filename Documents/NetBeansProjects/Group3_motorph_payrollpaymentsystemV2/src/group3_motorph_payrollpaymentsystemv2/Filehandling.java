@@ -25,8 +25,7 @@ public class Filehandling {
             List<String[]> records = reader.readAll();
             // Assuming the first row is the header
             records.remove(0);
-            System.out.print(records);
-            
+                 
             return records;
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "File not found: " + csvFile, "Error", JOptionPane.ERROR_MESSAGE);
@@ -61,6 +60,8 @@ public class Filehandling {
             Employee employee = new Employee(employeeNumber, lastName, firstName, employeeBirthday, address, phoneNumber, sssNumber, philHealthNumber, tinNumber, pagIbigNumber, status, position, immediateSupervisor, basicSalary, riceSubsidy, phoneAllowance, clothingAllowance);
             employees.add(employee);
         }
+        
+ 
         return employees;
     }
 

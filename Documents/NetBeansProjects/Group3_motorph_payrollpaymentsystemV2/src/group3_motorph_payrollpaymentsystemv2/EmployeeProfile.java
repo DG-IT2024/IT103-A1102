@@ -643,22 +643,36 @@ public class EmployeeProfile extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
         int selectedRowIndex = jTableEmployeeList.getSelectedRow();
 
-        PayrollProcessing viewEmployeeFrame;
-        
         try {
-            viewEmployeeFrame = new PayrollProcessing();
-            
+            PayrollProcessing viewEmployeeFrame = new PayrollProcessing();
             // Display the window
             viewEmployeeFrame.setVisible(true);
             viewEmployeeFrame.pack();
             viewEmployeeFrame.setDefaultCloseOperation(PayrollProcessing.DISPOSE_ON_CLOSE); //if viewEmployeeFrame is close, main frame will not close.
-            
-            
+
             // Display the data in viewEmployeeFrame
             viewEmployeeFrame.jTextFieldEmployeeNum.setText(model.getValueAt(selectedRowIndex, 0).toString());
             viewEmployeeFrame.jTextFieldLastName.setText(model.getValueAt(selectedRowIndex, 1).toString());
             viewEmployeeFrame.jTextFieldFirstName.setText(model.getValueAt(selectedRowIndex, 2).toString());
             viewEmployeeFrame.jTextFieldBasicSalary.setText(model.getValueAt(selectedRowIndex, 13).toString());
+
+            //Benefits
+            double riceSubsidy;
+            double phoneAllowance;
+            double clothingAllowance;
+            double totalBenefits;
+
+            riceSubsidy = Double.parseDouble(model.getValueAt(selectedRowIndex, 14).toString());
+            phoneAllowance = Double.parseDouble(model.getValueAt(selectedRowIndex, 15).toString());
+            clothingAllowance = Double.parseDouble(model.getValueAt(selectedRowIndex, 16).toString());
+
+            totalBenefits = riceSubsidy + phoneAllowance + clothingAllowance;
+            String formattedTotalBenefits = String.format("%.2f", totalBenefits);
+            viewEmployeeFrame.jTextFieldBenefits.setText(formattedTotalBenefits);
+            
+            
+            
+          
 
         } catch (IOException ex) {
             Logger.getLogger(EmployeeProfile.class.getName()).log(Level.SEVERE, null, ex);

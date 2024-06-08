@@ -1,6 +1,6 @@
 package group3_motorph_payrollpaymentsystemV2;
 
-public class Employee{
+public class Employee {
 
     // Attributes
     private String employeeNumber;
@@ -180,7 +180,7 @@ public class Employee{
         this.clothingAllowance = clothingAllowance;
     }
 
-    @Override
+  
     public String toString() {
         return "Employee{"
                 + "employeeNumber=" + employeeNumber
@@ -202,4 +202,5 @@ public class Employee{
                 + ", clothingAllowance=" + clothingAllowance
                 + '}';
     }
+   
 }
