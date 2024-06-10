@@ -5,10 +5,12 @@ import group3_motorph_payrollpaymentsystemV2.Filehandling;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class EmployeeProfile extends javax.swing.JFrame {
@@ -561,6 +563,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
         List<String[]> records = Filehandling.readCSV(csvFile);
         List<Employee> employees = Filehandling.parseRecords(records);
         informationTable(employees);
+
     }
 
     private void informationTable(List<Employee> employees) {
@@ -603,6 +606,63 @@ public class EmployeeProfile extends javax.swing.JFrame {
         }
     }
 
+    public void updateEmployee() {
+
+        int selectedRowIndex = jTableEmployeeList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
+
+        if (selectedRowIndex >= 0) {
+            model.setValueAt(jTextFieldEmployeeNum.getText(), selectedRowIndex, 0);
+            model.setValueAt(jTextFieldLastName.getText(), selectedRowIndex, 1);
+            model.setValueAt(jTextFieldFirstName.getText(), selectedRowIndex, 2);
+            model.setValueAt(jTextFieldBirthday.getText(), selectedRowIndex, 3);
+            model.setValueAt(jTextAreaAddress.getText(), selectedRowIndex, 4);
+            model.setValueAt(jTextFieldPhoneNum.getText(), selectedRowIndex, 5);
+            model.setValueAt(jTextFieldSSSnum.getText(), selectedRowIndex, 6);
+            model.setValueAt(jTextFieldPhilhealthNum.getText(), selectedRowIndex, 7);
+            model.setValueAt(jTextFieldTINnum.getText(), selectedRowIndex, 8);
+            model.setValueAt(jTextFieldPagibigNum.getText(), selectedRowIndex, 9);
+            model.setValueAt(jTextFieldStatus.getText(), selectedRowIndex, 10);
+            model.setValueAt(jTextFieldPosition.getText(), selectedRowIndex, 11);
+            model.setValueAt(jTextFieldSupervisor.getText(), selectedRowIndex, 12);
+            model.setValueAt(jTextFieldBasicSalary.getText(), selectedRowIndex, 13);
+            model.setValueAt(jTextFieldRiceSubsidy.getText(), selectedRowIndex, 14);
+            model.setValueAt(jTextFieldPhoneAllow.getText(), selectedRowIndex, 15);
+            model.setValueAt(jTextFieldClothAllow.getText(), selectedRowIndex, 16);
+
+            JOptionPane.showMessageDialog(this, "Employee information Updated successfully");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+
+    }
+
+    public List<String> createTableIdList() {
+        DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
+        List<String> tableIdList = new ArrayList<>();
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String id = model.getValueAt(i, 0).toString();
+            tableIdList.add(id);
+        }
+        return tableIdList;
+    }
+
+    public boolean isUniqueEmployeeId(List<String> tableIdList) {
+        String newEmployeeId = jTextFieldEmployeeNum.getText().trim();
+
+        for (int i = 0; i < tableIdList.size(); i++) {
+            if (tableIdList.get(i).equals(newEmployeeId)) {
+                JOptionPane.showMessageDialog(this, "ID number already exist");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
         // TODO add your handling code here:
         jTextFieldStatus.setText("");
@@ -630,12 +690,28 @@ public class EmployeeProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClearActionPerformed
 
     private void jButtonProfileDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfileDeleteActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = jTableEmployeeList.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
-        model.removeRow(selectedRowIndex);
 
-        JOptionPane.showMessageDialog(this, "Employee deleted successfully");
+        // Ask if user wants to proceed with deleting the employee
+        int response = JOptionPane.showConfirmDialog(null, "Do you want to proceed with deleting the entry?",
+                "Delete Entry Confirmation",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        // JOptionPane returns: 1 = No, 0 = Yes
+        System.out.println(response);
+        System.out.println(JOptionPane.YES_OPTION);
+        // Check the user's response
+
+        if (response == JOptionPane.YES_OPTION) {
+            int selectedRowIndex = jTableEmployeeList.getSelectedRow();
+            DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
+            model.removeRow(selectedRowIndex);
+
+            JOptionPane.showMessageDialog(this, "Employee deleted successfully");
+
+        }
+        // If "No" or dialog is closed, do nothing and exit the dialog
+
     }//GEN-LAST:event_jButtonProfileDeleteActionPerformed
 
     private void jButtonViewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewEmployeeActionPerformed
@@ -669,10 +745,6 @@ public class EmployeeProfile extends javax.swing.JFrame {
             totalBenefits = riceSubsidy + phoneAllowance + clothingAllowance;
             String formattedTotalBenefits = String.format("%.2f", totalBenefits);
             viewEmployeeFrame.jTextFieldBenefits.setText(formattedTotalBenefits);
-            
-            
-            
-          
 
         } catch (IOException ex) {
             Logger.getLogger(EmployeeProfile.class.getName()).log(Level.SEVERE, null, ex);
@@ -682,36 +754,19 @@ public class EmployeeProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonViewEmployeeActionPerformed
 
     private void jButtonProfileUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfileUpdateActionPerformed
-        // TODO add your handling code here:
 
-        int selectedRowIndex = jTableEmployeeList.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
+        // Ask if user wants to proceed with updating the information of the employee
+        int response = JOptionPane.showConfirmDialog(null, "Do you want to proceed with updating the entry?",
+                "Update Confirmation",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
 
-        if (selectedRowIndex >= 0) {
-            model.setValueAt(jTextFieldEmployeeNum.getText(), selectedRowIndex, 0);
-            model.setValueAt(jTextFieldLastName.getText(), selectedRowIndex, 1);
-            model.setValueAt(jTextFieldFirstName.getText(), selectedRowIndex, 2);
-            model.setValueAt(jTextFieldBirthday.getText(), selectedRowIndex, 3);
-            model.setValueAt(jTextAreaAddress.getText(), selectedRowIndex, 4);
-            model.setValueAt(jTextFieldPhoneNum.getText(), selectedRowIndex, 5);
-            model.setValueAt(jTextFieldSSSnum.getText(), selectedRowIndex, 6);
-            model.setValueAt(jTextFieldPhilhealthNum.getText(), selectedRowIndex, 7);
-            model.setValueAt(jTextFieldTINnum.getText(), selectedRowIndex, 8);
-            model.setValueAt(jTextFieldPagibigNum.getText(), selectedRowIndex, 9);
-            model.setValueAt(jTextFieldStatus.getText(), selectedRowIndex, 10);
-            model.setValueAt(jTextFieldPosition.getText(), selectedRowIndex, 11);
-            model.setValueAt(jTextFieldSupervisor.getText(), selectedRowIndex, 12);
-            model.setValueAt(jTextFieldBasicSalary.getText(), selectedRowIndex, 13);
-            model.setValueAt(jTextFieldRiceSubsidy.getText(), selectedRowIndex, 14);
-            model.setValueAt(jTextFieldPhoneAllow.getText(), selectedRowIndex, 15);
-            model.setValueAt(jTextFieldClothAllow.getText(), selectedRowIndex, 16);
-
-            JOptionPane.showMessageDialog(this, "Employee information Updated successfully");
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Error");
+        // JOptionPane returns: 1 = No, 0 = Yes
+        // Check the user's response
+        if (response == JOptionPane.YES_OPTION) {
+            updateEmployee();
         }
-
+        // If "No" or dialog is closed, do nothing and exit the dialog
 
     }//GEN-LAST:event_jButtonProfileUpdateActionPerformed
 
@@ -793,30 +848,37 @@ public class EmployeeProfile extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldStatusActionPerformed
 
     private void jButtonProfileAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProfileAddActionPerformed
-        // TODO add your handling code here:
 
-        DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
+        List<String> tableIdList = createTableIdList();
+        boolean isUnique = isUniqueEmployeeId(tableIdList);
 
-        model.addRow(new Object[]{
-            jTextFieldEmployeeNum.getText(),
-            jTextFieldLastName.getText(),
-            jTextFieldFirstName.getText(),
-            jTextFieldBirthday.getText(),
-            jTextAreaAddress.getText(),
-            jTextFieldPhoneNum.getText(),
-            jTextFieldSSSnum.getText(),
-            jTextFieldPhilhealthNum.getText(),
-            jTextFieldTINnum.getText(),
-            jTextFieldPagibigNum.getText(),
-            jTextFieldStatus.getText(),
-            jTextFieldPosition.getText(),
-            jTextFieldSupervisor.getText(),
-            jTextFieldBasicSalary.getText(),
-            jTextFieldRiceSubsidy.getText(),
-            jTextFieldPhoneAllow.getText(),
-            jTextFieldClothAllow.getText()});
+        if (isUnique) {
+            DefaultTableModel model = (DefaultTableModel) jTableEmployeeList.getModel();
 
-        JOptionPane.showMessageDialog(this, "Employee added successfully!");
+            model.addRow(new Object[]{
+                jTextFieldEmployeeNum.getText(),
+                jTextFieldLastName.getText(),
+                jTextFieldFirstName.getText(),
+                jTextFieldBirthday.getText(),
+                jTextAreaAddress.getText(),
+                jTextFieldPhoneNum.getText(),
+                jTextFieldSSSnum.getText(),
+                jTextFieldPhilhealthNum.getText(),
+                jTextFieldTINnum.getText(),
+                jTextFieldPagibigNum.getText(),
+                jTextFieldStatus.getText(),
+                jTextFieldPosition.getText(),
+                jTextFieldSupervisor.getText(),
+                jTextFieldBasicSalary.getText(),
+                jTextFieldRiceSubsidy.getText(),
+                jTextFieldPhoneAllow.getText(),
+                jTextFieldClothAllow.getText()});
+
+            JOptionPane.showMessageDialog(this, "Employee added successfully!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to add employee" , "Duplicate ID", JOptionPane.WARNING_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButtonProfileAddActionPerformed
 
     private void jButtonUpdateDBSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateDBSActionPerformed
@@ -902,6 +964,7 @@ public class EmployeeProfile extends javax.swing.JFrame {
                 }
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
