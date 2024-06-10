@@ -37,14 +37,12 @@ public class PayrollProcessing extends javax.swing.JFrame {
         initComponents();
         String csvWorkedHoursFile = "Employee_Hours_Worked.csv";
         List<String[]> records = Filehandling.readCSV(csvWorkedHoursFile);
-        List<EmployeeHoursWorked> employeeData_ = parseRecordsHoursWorked(records);
+        parseRecordsHoursWorked(records);
         populatecomboboxCoveredPeriods();
-//        List<String> coveredPeriods = removeDuplicatesPeriod(employeeData);
-//        List<String> sortedPeriods = sortDates(coveredPeriods);
-//        comboboxCoveredPeriods(sortedPeriods);
+
     }
 
-    public List<EmployeeHoursWorked> parseRecordsHoursWorked(List<String[]> records) {
+    public void parseRecordsHoursWorked(List<String[]> records) {
 
         for (String[] record : records) {
             String employeeNumber = record[0];
@@ -57,7 +55,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
             employeeData.add(employeehoursWorked);
 
         }
-        return employeeData;
+        
     }
 
     private String[] populateByMonth() {
@@ -79,7 +77,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
     }
 
     private void populatecomboboxCoveredPeriods() {
-        
+
         String[] months = populateByMonth();
         for (String month : months) {
             jComboBoxCoveredMonth.addItem(month);
@@ -109,8 +107,6 @@ public class PayrollProcessing extends javax.swing.JFrame {
     }
 
     public String[] createHeadertoRecords() {
-
-        String csvFile = "payrollRecords.csv";
 
         String[] headers = {
             "Employee No.",
@@ -147,9 +143,9 @@ public class PayrollProcessing extends javax.swing.JFrame {
     }
 
     public void updatePayrollRecords() throws IOException {
-        String csvFile = "PayrollRecords.csv";
+        String csvPayrollFile = "PayrollRecords.csv";
 
-        boolean isEmpty = isPayrollRecordsCsvEmpty(csvFile);
+        boolean isEmpty = isPayrollRecordsCsvEmpty(csvPayrollFile);
 
         String[] entry = {
             jTextFieldEmployeeNum.getText(),
@@ -170,7 +166,7 @@ public class PayrollProcessing extends javax.swing.JFrame {
             jTextFieldTakeHomePay.getText()
         };
 
-        try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile, true))) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(csvPayrollFile, true))) {
 
             if (isEmpty) {
                 writer.writeNext(createHeadertoRecords());
