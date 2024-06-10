@@ -64,7 +64,7 @@ public class Employee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName() {
         this.firstName = firstName;
     }
 
@@ -72,7 +72,7 @@ public class Employee {
         return employeeBirthday;
     }
 
-    public void setEmployeeBirthday(String employeeBirthday) {
+    public void setEmployeeBirthday() {
         this.employeeBirthday = employeeBirthday;
     }
 

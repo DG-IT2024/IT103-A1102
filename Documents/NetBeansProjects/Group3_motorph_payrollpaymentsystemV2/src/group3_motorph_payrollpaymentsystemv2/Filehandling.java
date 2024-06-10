@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package group3_motorph_payrollpaymentsystemV2;
 
 import com.opencsv.CSVReader;
@@ -10,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -25,49 +20,12 @@ public class Filehandling {
             List<String[]> records = reader.readAll();
             // Assuming the first row is the header
             records.remove(0);
-                 
+
             return records;
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "File not found: " + csvFile, "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
             throw e; // rethrow the exception to indicate failure
-
-        }
-    }
-
-    // Method to parse records into Employee objects
-    public static List<Employee> parseRecords(List<String[]> records) {
-        List<Employee> employees = new ArrayList<>();
-        for (String[] record : records) {
-            String employeeNumber = record[0];
-            String lastName = record[1];
-            String firstName = record[2];
-            String employeeBirthday = record[3];
-            String address = record[4];
-            String phoneNumber = record[5];
-            String sssNumber = record[6];
-            String philHealthNumber = record[7];
-            String tinNumber = record[8];
-            String pagIbigNumber = record[9];
-            String status = record[10];
-            String position = record[11];
-            String immediateSupervisor = record[12];
-            String basicSalary = record[13];
-            String riceSubsidy = record[14];
-            String phoneAllowance = record[15];
-            String clothingAllowance = record[16];
-
-            Employee employee = new Employee(employeeNumber, lastName, firstName, employeeBirthday, address, phoneNumber, sssNumber, philHealthNumber, tinNumber, pagIbigNumber, status, position, immediateSupervisor, basicSalary, riceSubsidy, phoneAllowance, clothingAllowance);
-            employees.add(employee);
-        }
-        
- 
-        return employees;
-    }
-
-    private static void printEmployees(List<Employee> employees) {
-        for (Employee employee : employees) {
-            System.out.println("no." + employee.getEmployeeNumber() + "  " + employee.getLastName() + " ," + employee.getFirstName());
 
         }
     }
@@ -95,11 +53,9 @@ public class Filehandling {
                 writer.writeNext(rowData);
             }
 
-             JOptionPane.showMessageDialog(null,"Database updated successfully");
+            JOptionPane.showMessageDialog(null, "Database updated successfully");
         } catch (IOException e) {
-             JOptionPane.showMessageDialog(null,"Failed to export data to CSV file.");
+            JOptionPane.showMessageDialog(null, "Failed to export data to CSV file.");
         }
     }
-   
-
 }

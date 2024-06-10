@@ -11,15 +11,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.Year;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import com.opencsv.CSVWriter;
 import java.io.FileWriter;
+import group3_motorph_payrollpaymentsystemV2.Filehandling;
 
 /**
  *
@@ -35,32 +33,15 @@ public class PayrollProcessing extends javax.swing.JFrame {
      * @throws java.io.FileNotFoundException
      */
     public PayrollProcessing() throws FileNotFoundException, IOException {
-        initComponents();
 
+        initComponents();
         String csvWorkedHoursFile = "Employee_Hours_Worked.csv";
-        List<String[]> records = readWorkedHoursCSV(csvWorkedHoursFile);
-        List<EmployeeHoursWorked> employeeData = parseRecordsHoursWorked(records);
+        List<String[]> records = Filehandling.readCSV(csvWorkedHoursFile);
+        List<EmployeeHoursWorked> employeeData_ = parseRecordsHoursWorked(records);
         populatecomboboxCoveredPeriods();
 //        List<String> coveredPeriods = removeDuplicatesPeriod(employeeData);
 //        List<String> sortedPeriods = sortDates(coveredPeriods);
 //        comboboxCoveredPeriods(sortedPeriods);
-    }
-
-    private static List<String[]> readWorkedHoursCSV(String csvWorkedHoursFile) throws IOException {
-
-        try (CSVReader reader = new CSVReader(new FileReader(csvWorkedHoursFile))) {
-            List<String[]> records = reader.readAll();
-            // Assuming the first row is the header
-            records.remove(0);
-
-            return records;
-
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "File not found: " + csvWorkedHoursFile, "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
-            throw e; // rethrow the exception to indicate failure
-
-        }
     }
 
     public List<EmployeeHoursWorked> parseRecordsHoursWorked(List<String[]> records) {
@@ -79,44 +60,8 @@ public class PayrollProcessing extends javax.swing.JFrame {
         return employeeData;
     }
 
-//    public static List<String> removeDuplicatesPeriod(List<EmployeeHoursWorked> employeeData) {
-//        Set<String> uniquePeriods = new HashSet<>();
-//        
-//        for (EmployeeHoursWorked employeeHours : employeeData) {
-//            uniquePeriods.add(employeeHours.getCoveredPeriod());
-//        }
-//        
-//        List<String> coveredPeriods = new ArrayList<>();
-//        coveredPeriods.add("");
-//        
-//        for (String period : uniquePeriods) {
-//            coveredPeriods.add(period);
-//            
-//        }
-//        
-//        return coveredPeriods;
-//        
-//    }
-//    
-//    public static List<String> sortDates(List<String> coveredPeriods) {
-//        List<String> sortedPeriods = new ArrayList<>(coveredPeriods);
-//        Collections.sort(sortedPeriods);
-//        
-//        return sortedPeriods;
-//        
-//    }
-//    public void generateTruncatedList() {
-//        String searchId = jTextFieldEmployeeNum.getText();
-//
-//        for (EmployeeHoursWorked employee : employeeData) {
-//            if (employee.getEmployeeNumber().equals(searchId)) {
-//                System.out.println(employee);
-//                truncatedList.add(employee);
-//            }
-//        }
-//    }
     private String[] populateByMonth() {
-        String[] months = {
+        String[] months = {"",
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         };
@@ -134,10 +79,10 @@ public class PayrollProcessing extends javax.swing.JFrame {
     }
 
     private void populatecomboboxCoveredPeriods() {
+        
         String[] months = populateByMonth();
-
-        for (int i = 0; i < months.length; i++) {
-            jComboBoxCoveredMonth.addItem(months[i]);
+        for (String month : months) {
+            jComboBoxCoveredMonth.addItem(month);
         }
 
         List<Integer> years = populateByYear();
@@ -145,12 +90,6 @@ public class PayrollProcessing extends javax.swing.JFrame {
             jComboBoxCoveredYear.addItem(years.get(i).toString());
         }
 
-    }
-
-    private void printEmployeesData(List<EmployeeHoursWorked> employeeData) {
-        for (EmployeeHoursWorked employeehoursWorked : employeeData) {
-            System.out.println("no." + employeehoursWorked.getEmployeeNumber() + "  " + employeehoursWorked.getLastName() + " ," + employeehoursWorked.getFirstName() + " ," + employeehoursWorked.getNoOfHoursWorked());
-        }
     }
 
     public Integer matchWorkedHours() {
@@ -164,6 +103,8 @@ public class PayrollProcessing extends javax.swing.JFrame {
 
             }
         }
+        JOptionPane.showMessageDialog(null, "No record for the selected covered period");
+
         return -1; // Return -1 if no match is found
     }
 
@@ -198,18 +139,17 @@ public class PayrollProcessing extends javax.swing.JFrame {
             String[] nextLine = csvReader.readNext();
 
             // If nextLine is null, the file is empty
-            return nextLine == null;
+            return nextLine == null; // check if statement is true
         } catch (IOException e) {
-           
-            // You may want to handle the exception differently depending on your requirements
-            return true;
+
+            return true; // return boolean true if csvFile can't be found in the directory. 
         }
     }
 
     public void updatePayrollRecords() throws IOException {
         String csvFile = "PayrollRecords.csv";
-        
-        boolean isEmpty =isPayrollRecordsCsvEmpty(csvFile);
+
+        boolean isEmpty = isPayrollRecordsCsvEmpty(csvFile);
 
         String[] entry = {
             jTextFieldEmployeeNum.getText(),
@@ -232,10 +172,10 @@ public class PayrollProcessing extends javax.swing.JFrame {
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(csvFile, true))) {
 
-            if(isEmpty){
+            if (isEmpty) {
                 writer.writeNext(createHeadertoRecords());
             }
-            
+
             writer.writeNext(entry);
             JOptionPane.showMessageDialog(null, "Entry added successfully.");
         } catch (IOException ex) {
@@ -393,8 +333,15 @@ public class PayrollProcessing extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel6.setText("Covered Period");
 
+        jComboBoxCoveredYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCoveredYearActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Worked Hours");
 
+        jTextFieldWorkedHours.setEditable(false);
         jTextFieldWorkedHours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldWorkedHoursActionPerformed(evt);
@@ -507,6 +454,17 @@ public class PayrollProcessing extends javax.swing.JFrame {
         jTextFieldBasicSalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBasicSalaryActionPerformed(evt);
+            }
+        });
+
+        jComboBoxCoveredMonth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxCoveredMonthMouseClicked(evt);
+            }
+        });
+        jComboBoxCoveredMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCoveredMonthActionPerformed(evt);
             }
         });
 
@@ -810,6 +768,19 @@ public class PayrollProcessing extends javax.swing.JFrame {
             Logger.getLogger(PayrollProcessing.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonAddtoRecordsActionPerformed
+
+    private void jComboBoxCoveredMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCoveredMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCoveredMonthActionPerformed
+
+    private void jComboBoxCoveredYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCoveredYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCoveredYearActionPerformed
+
+    private void jComboBoxCoveredMonthMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxCoveredMonthMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jComboBoxCoveredMonthMouseClicked
 
     /**
      * @param args the command line arguments
